@@ -26,8 +26,6 @@ export class AppComponent implements OnInit {
     }
 
     public convert(reverse, initial) {
-        this.error = null;
-
         this.dataService.getRates(this.fromCurrency).then(response => {
 
             if (response.rates) {
@@ -49,7 +47,7 @@ export class AppComponent implements OnInit {
                     this.rates = items;
                     this.fromCurrency = this.rates[29].id;
                     this.toCurrency = this.rates[10].id;
-                    //this.convert(false, false);
+                    // this.convert(false, false);
                 }
 
                 this.fromRates = response.rates;
@@ -64,10 +62,10 @@ export class AppComponent implements OnInit {
         });
     }
 
-    private calculate(reverse) {
+    public calculate(reverse) {
         this.handleErrors();
 
-        if(!this.error) {
+        if (!this.error) {
             if (reverse) {
                 this.fromAmount = Math.round( this.toAmount / this.fromRates[this.toCurrency] * 100) / 100;
             } else {
@@ -77,6 +75,8 @@ export class AppComponent implements OnInit {
     }
 
     private handleErrors() {
+        this.error = null;
+
         if (!this.fromAmount) {
             this.error = 'Please enter the amount';
             return;
