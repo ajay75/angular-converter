@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
     private handleErrors() {
         this.error = null;
 
-        if (!this.fromAmount) {
+        if (!this.fromAmount && !this.toAmount) {
             this.error = 'Please enter the amount';
             return;
         }
