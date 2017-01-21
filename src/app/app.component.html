@@ -1,5 +1,5 @@
 <h1>
-	{{ title }}
+    {{ title }}
 </h1>
 
 <div class="error" style="color: red; font-weight: bold;" *ngIf="error">Error: {{ this.error }}</div>
@@ -8,20 +8,20 @@
 
 <div class="converter">
 
-	<span class="convert-txt">Convert</span> 
+    <span class="convert-txt">Convert</span>
 
-	<input id="from-amount" type="number" [(ngModel)]="fromAmount" (ngModelChange)='onFromAmountChange()'>
+    <input id="from-amount" type="number" [(ngModel)]="fromAmount" (ngModelChange)='convert(false, false)'>
 
-	<select id="fromCurrency" [(ngModel)]="fromCurrency" (ngModelChange)="onFromChange()">
-		<option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
-	</select>
+    <select id="fromCurrency" [(ngModel)]="fromCurrency" (ngModelChange)="convert(false, false)">
+        <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+    </select>
 
-	<span class="to">to</span>
+    <span class="to">to</span>
 
-	<input id="to-amount" type="number" [(ngModel)]="toAmount" (ngModelChange)="onToAmountChange()">
+    <input id="to-amount" type="number" [(ngModel)]="toAmount" (ngModelChange)="convert(true, false)">
 
-	<select id="toCurrency" [(ngModel)]="toCurrency" (ngModelChange)="onToChange()">
-		<option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
-	</select>
+    <select id="toCurrency" [(ngModel)]="toCurrency" (ngModelChange)="convert(false, false)">
+        <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+    </select>
 
 </div><!--/div.converter -->
