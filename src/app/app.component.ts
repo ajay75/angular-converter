@@ -29,20 +29,8 @@ export class AppComponent implements OnInit {
         this.dataService.getRates(this.fromCurrency).then(response => {
 
             if (response.rates) {
-
                 if (initial) {
-                    const items: Array<any> = [];
-
-                    for (const key in response.rates) {
-                        if (key) {
-                            const obj = {
-                                id: key,
-                                value: response.rates[key]
-                            };
-                            items.push(obj);
-                        }
-                    }
-
+                    const items: Array<any> = this.parseData(response.rates);
                     items.push({id: 'EUR', value: 1});
                     this.rates = items;
                     this.fromCurrency = this.rates[29].id;
@@ -72,6 +60,22 @@ export class AppComponent implements OnInit {
                 this.toAmount = Math.round(this.fromAmount * this.fromRates[this.toCurrency] * 100) / 100;
             }
         }
+    }
+
+    private parseData(data) {
+        const arr: Array<any> = [];
+
+        for (const key in data) {
+            if (key) {
+                const obj = {
+                    id: key,
+                    value: data[key]
+                };
+                arr.push(obj);
+            }
+        }
+
+        return arr;
     }
 
     private handleErrors() {
