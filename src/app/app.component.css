@@ -1,21 +1,52 @@
 html {
-	font-family: 'Lato', sans-serif;
-	margin: 0;
-	padding: 0;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-	background: url('https://static.pexels.com/photos/94654/pexels-photo-94654.jpeg')no-repeat;
-	background-size: cover;
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 105%;
+    min-height: 105%;
+    transform: translate(-2.5%, -2.5%);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+    z-index: -1;
 }
 
 app-bulb-converter {
-	background: rgba(255, 255, 255, .8);
-	display: block;
-	text-align: center;
-	position: absolute;
-	padding: 30px 15px;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, .8);
+    display: block;
+    min-height: 50vh;
+    min-width: 320px;
+    text-align: center;
+    position: absolute;
+    padding: 30px 15px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+
+.convert-txt,
+.to {
+    display: inline-block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    padding: 10px 15px 10px 0;
+    width: 90px;
+}
+
+input[type=number],
+select {
+    font-size: 1.3rem;
 }

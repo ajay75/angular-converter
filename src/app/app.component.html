@@ -10,17 +10,19 @@
 
     <span class="convert-txt">Convert</span>
 
-    <input id="from-amount" type="number" [(ngModel)]="fromAmount" (ngModelChange)='convert(false, false)'>
+    <input id="from-amount" type="number" [(ngModel)]="fromAmount" (ngModelChange)='calculate(false)'>
 
     <select id="fromCurrency" [(ngModel)]="fromCurrency" (ngModelChange)="convert(false, false)">
         <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
     </select>
 
-    <span class="to">to</span>
+    <br><br>
 
-    <input id="to-amount" type="number" [(ngModel)]="toAmount" (ngModelChange)="convert(true, false)">
+    <span class="to">into</span>
 
-    <select id="toCurrency" [(ngModel)]="toCurrency" (ngModelChange)="convert(false, false)">
+    <input id="to-amount" type="number" [(ngModel)]="toAmount" (ngModelChange)="calculate(true)">
+
+    <select id="toCurrency" [(ngModel)]="toCurrency" (ngModelChange)="calculate(true)">
         <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
     </select>
 
