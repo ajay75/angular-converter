@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
                     this.rates = items;
                     this.fromCurrency = this.rates[29].id;
                     this.toCurrency = this.rates[10].id;
+                    this.convert(false, false);
                 }
 
                 this.fromRates = response.rates;
