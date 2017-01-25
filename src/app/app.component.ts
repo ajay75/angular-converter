@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     fromCurrency: string = null;
     toCurrency: string = null;
     rates: Array<any> = [];
-    fromRates = {};
+    fromRates: Object = {};
     constructor(private dataService: DataService) {}
 
     ngOnInit() {
